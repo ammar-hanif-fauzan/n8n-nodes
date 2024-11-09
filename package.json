@@ -35,10 +35,9 @@
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
-    "credentials": [
-    ],
+    "credentials": [],
     "nodes": [
-      "dist/nodes/ExampleNode/CodeligenceChatModel1.node.js"
+      "dist/nodes/CodeligenceChatModel/CodeligenceChatModel.node.js"
     ]
   },
   "devDependencies": {
