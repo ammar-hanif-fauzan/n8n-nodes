@@ -1,0 +1,19 @@
+{
+	"node": "n8n-nodes-base.CodeligenceChatModel",
+	"nodeVersion": "1.0",
+	"categories": [
+		"Miscellaneous"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": ""
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": ""
+			}
+		]
+	}
+}
