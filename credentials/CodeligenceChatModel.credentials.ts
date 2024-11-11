@@ -35,7 +35,7 @@ export class CodeligenceChatModel implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials?.baseUrl}}',
-			url: '/v1',
+			url: '/v1/models',
 			timeout: 5000,
 		},
 	};
