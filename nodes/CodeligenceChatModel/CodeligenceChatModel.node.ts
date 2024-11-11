@@ -40,7 +40,7 @@ export class CodeligenceChatModel implements INodeType {
 		outputNames: ['Model'],
 		credentials: [
 			{
-				name: 'openAiApi',
+				name: 'codeligenceChatModel',
 				required: true,
 			},
 		],

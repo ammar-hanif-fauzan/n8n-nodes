@@ -6,7 +6,7 @@ import type {
 } from 'n8n-workflow';
 
 export class CodeligenceChatModel implements ICredentialType {
-	name = 'CodeligenceChatModel';
+	name = 'codeligenceChatModel';
 
 	displayName = 'Codeligence Chat Model';
 
@@ -19,6 +19,7 @@ export class CodeligenceChatModel implements ICredentialType {
 			type: 'string',
 			required: true,
 			default: '',
+			description: 'Enter the base URL for the Codeligence Chat API, e.g., https://api.codeligence.com',
 		},
 	];
 
@@ -33,8 +34,9 @@ export class CodeligenceChatModel implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: '{{$credentials.baseUrl}} || "https://api.codeligence.ai"',
-			url: '/v1/models',
+			baseURL: '={{$credentials?.baseUrl}}',
+			url: '/v1',
+			timeout: 5000,
 		},
 	};
 }
