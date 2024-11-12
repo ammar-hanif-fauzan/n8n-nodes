@@ -68,7 +68,7 @@ export class CodeligenceChatModel implements INodeType {
 						name: 'list',
 						type: 'list',
 						typeOptions: {
-							searchListMethod: 'openAiModelSearch',
+							searchListMethod: 'codeligenceChatModelModelSearch',
 						},
 					},
 					{
@@ -173,7 +173,7 @@ export class CodeligenceChatModel implements INodeType {
 
 	methods = {
 		listSearch: {
-			async openAiModelSearch(this: ILoadOptionsFunctions) {
+			async codeligenceChatModelModelSearch(this: ILoadOptionsFunctions) {
 				const results = [];
 
 				const options = this.getNodeParameter('options', {}) as LmOpenAiOptions;
@@ -184,18 +184,19 @@ export class CodeligenceChatModel implements INodeType {
 					uri = `${options.baseURL}/models`;
 				}
 
-				const { data } = (await this.helpers.requestWithAuthentication.call(this, 'openAiApi', {
+				const { data } = (await this.helpers.requestWithAuthentication.call(this, 'codeligenceChatModel', {
 					method: 'GET',
 					uri,
 					json: true,
 				})) as { data: Array<{ owned_by: string; id: string }> };
 
 				for (const model of data) {
-					if (!options.baseURL && !model.owned_by?.startsWith('system')) continue;
-					results.push({
-						name: model.id,
-						value: model.id,
-					});
+					if (!options.baseURL && !model.owned_by?.startsWith('system')){
+						results.push({
+							name: model.id,
+							value: model.id,
+						});
+					}
 				}
 
 				return { results };
