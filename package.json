@@ -39,10 +39,12 @@
       "dist/credentials/CodeligenceChatModel.mode.js"
     ],
     "nodes": [
-      "dist/nodes/CodeligenceChatModel/CodeligenceChatModel.node.js"
+      "dist/nodes/CodeligenceChatModel/CodeligenceChatModel.node.js",
+      "dist/nodes/Codeligence/Codeligence.node.js"
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.13",
     "@typescript-eslint/parser": "^7.15.0",
     "eslint": "^8.56.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.1",
@@ -53,5 +55,10 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.17",
+    "@langchain/openai": "^0.3.12",
+    "langchain": "^0.3.5"
   }
 }
