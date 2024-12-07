@@ -34,6 +34,17 @@ export const reportOperations: INodeProperties[] = [{
 					url: '/v1/agent/submitStatus',
 				}
 			}
+		},
+		{
+			name: 'Report Citations',
+			value: 'citations',
+			action: 'Report Citations',
+			routing: {
+				request: {
+					method: 'POST',
+					url: '/v1/agent/submitCitations',
+				}
+			}
 		}
 	],
 	default: 'output',
@@ -140,8 +151,81 @@ const reportStatusOperations: INodeProperties[] = [
 	},
 ];
 
+const reportCitationsOperations: INodeProperties[] = [
+	{
+		displayName: 'Chat ID',
+		name: 'chatId',
+		type: 'string',
+		placeholder: 'Chat ID',
+		displayOptions: {
+			show: {
+				resource: ['report'],
+				operation: ['citations'],
+			},
+		},
+		default: '',
+		routing: {
+			send: {
+				type: 'body',
+				property: 'chatId',
+			},
+		},
+	},
+	{
+		displayName: 'Citations',
+		name: 'citations',
+		default: {},
+		description: 'Citations',
+		displayOptions: {
+			show: {
+				resource: ['report'],
+				operation: ['citations'],
+			},
+		},
+		options: [
+			{
+				name: 'citationsValues',
+				displayName: 'Citations',
+				values: [
+					{
+						displayName: 'Name',
+						name: 'name',
+						type: 'string',
+						default: '',
+						routing: {
+							send: {
+								type: 'body',
+								property: 'name',
+							},
+						},
+					},
+					{
+						displayName: 'Source',
+						name: 'source',
+						type: 'string',
+						default: '',
+						routing: {
+							send: {
+								type: 'body',
+								property: 'source',
+							},
+						},
+					},
+				],
+			}
+		],
+		placeholder: 'Add Citation',
+		type: 'fixedCollection',
+		typeOptions: {
+			multipleValues: true,
+		},
+	}
+]
+
 export const reportFields: INodeProperties[] = [
 	...reportOutputOperations,
 
 	...reportStatusOperations,
+
+	...reportCitationsOperations,
 ];
