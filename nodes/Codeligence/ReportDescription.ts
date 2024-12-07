@@ -65,6 +65,7 @@ const reportOutputOperations: INodeProperties[] = [
 	{
 		displayName: 'Chat ID',
 		name: 'chatId',
+		required: true,
 		type: 'string',
 		placeholder: 'Chat ID',
 		displayOptions: {
@@ -84,6 +85,7 @@ const reportOutputOperations: INodeProperties[] = [
 	{
 		displayName: 'Task Name',
 		name: 'taskName',
+		required: true,
 		type: 'string',
 		placeholder: 'Task Name',
 		displayOptions: {
@@ -103,6 +105,7 @@ const reportOutputOperations: INodeProperties[] = [
 	{
 		displayName: 'Output',
 		name: 'output',
+		required: true,
 		type: 'string',
 		placeholder: 'Output',
 		displayOptions: {
@@ -125,6 +128,7 @@ const reportStatusOperations: INodeProperties[] = [
 	{
 		displayName: 'Chat ID',
 		name: 'chatId',
+		required: true,
 		type: 'string',
 		placeholder: 'Chat ID',
 		displayOptions: {
@@ -144,6 +148,7 @@ const reportStatusOperations: INodeProperties[] = [
 	{
 		displayName: 'Status',
 		name: 'status',
+		required: true,
 		type: 'string',
 		placeholder: 'Status',
 		displayOptions: {
@@ -166,6 +171,7 @@ const reportCitationsOperations: INodeProperties[] = [
 	{
 		displayName: 'Chat ID',
 		name: 'chatId',
+		required: true,
 		type: 'string',
 		placeholder: 'Chat ID',
 		displayOptions: {
@@ -183,10 +189,11 @@ const reportCitationsOperations: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Citations',
-		name: 'citations',
+		displayName: 'Add Citations',
+		name: 'addCitations',
+		required: true,
 		default: {},
-		description: 'Citations',
+		description: 'Add Citations',
 		displayOptions: {
 			show: {
 				resource: ['report'],
@@ -201,6 +208,7 @@ const reportCitationsOperations: INodeProperties[] = [
 					{
 						displayName: 'Name',
 						name: 'name',
+						required: true,
 						type: 'string',
 						default: '',
 						routing: {
@@ -213,6 +221,7 @@ const reportCitationsOperations: INodeProperties[] = [
 					{
 						displayName: 'Source',
 						name: 'source',
+						required: true,
 						type: 'string',
 						default: '',
 						routing: {
@@ -237,6 +246,7 @@ const repotButtonsOperations: INodeProperties[] = [
 	{
 		displayName: 'Chat ID',
 		name: 'chatId',
+		required: true,
 		type: 'string',
 		placeholder: 'Chat ID',
 		displayOptions: {
@@ -254,10 +264,11 @@ const repotButtonsOperations: INodeProperties[] = [
 		},
 	},
 	{
-		displayName: 'Buttons',
-		name: 'buttons',
+		displayName: 'Add Buttons',
+		name: 'addButtons',
+		required: true,
 		default: {},
-		description: 'Buttons',
+		description: 'Add Buttons',
 		displayOptions: {
 			show: {
 				resource: ['report'],
@@ -272,6 +283,7 @@ const repotButtonsOperations: INodeProperties[] = [
 					{
 						displayName: 'ID',
 						name: 'id',
+						required: true,
 						type: 'string',
 						default: '',
 						routing: {
@@ -284,6 +296,7 @@ const repotButtonsOperations: INodeProperties[] = [
 					{
 						displayName: 'Text',
 						name: 'text',
+						required: true,
 						type: 'string',
 						default: '',
 						routing: {
