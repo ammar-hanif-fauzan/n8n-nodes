@@ -44,7 +44,7 @@ const reportOutputOperations: INodeProperties[] = [
 		displayName: 'Chat ID',
 		name: 'chatId',
 		type: 'string',
-		placeholder: '1',
+		placeholder: 'Chat ID',
 		displayOptions: {
 			show: {
 				resource: ['report'],
@@ -99,6 +99,49 @@ const reportOutputOperations: INodeProperties[] = [
 	},
 ];
 
+const reportStatusOperations: INodeProperties[] = [
+	{
+		displayName: 'Chat ID',
+		name: 'chatId',
+		type: 'string',
+		placeholder: 'Chat ID',
+		displayOptions: {
+			show: {
+				resource: ['report'],
+				operation: ['status'],
+			},
+		},
+		default: '',
+		routing: {
+			send: {
+				type: 'body',
+				property: 'chatId',
+			},
+		},
+	},
+	{
+		displayName: 'Status',
+		name: 'status',
+		type: 'string',
+		placeholder: 'Status',
+		displayOptions: {
+			show: {
+				resource: ['report'],
+				operation: ['status'],
+			},
+		},
+		default: '',
+		routing: {
+			send: {
+				type: 'body',
+				property: 'status',
+			},
+		},
+	},
+];
+
 export const reportFields: INodeProperties[] = [
 	...reportOutputOperations,
+
+	...reportStatusOperations,
 ];
