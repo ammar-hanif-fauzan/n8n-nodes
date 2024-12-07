@@ -45,7 +45,18 @@ export const reportOperations: INodeProperties[] = [{
 					url: '/v1/agent/submitCitations',
 				}
 			}
-		}
+		},
+		{
+			name: 'Report Buttons',
+			value: 'buttons',
+			action: 'Report Buttons',
+			routing: {
+				request: {
+					method: 'POST',
+					url: '/v1/agent/submitButtons',
+				}
+			}
+		},
 	],
 	default: 'output',
 }];
@@ -220,7 +231,90 @@ const reportCitationsOperations: INodeProperties[] = [
 			multipleValues: true,
 		},
 	}
-]
+];
+
+const repotButtonsOperations: INodeProperties[] = [
+	{
+		displayName: 'Chat ID',
+		name: 'chatId',
+		type: 'string',
+		placeholder: 'Chat ID',
+		displayOptions: {
+			show: {
+				resource: ['report'],
+				operation: ['buttons'],
+			},
+		},
+		default: '',
+		routing: {
+			send: {
+				type: 'body',
+				property: 'chatId',
+			},
+		},
+	},
+	{
+		displayName: 'Buttons',
+		name: 'buttons',
+		default: {},
+		description: 'Buttons',
+		displayOptions: {
+			show: {
+				resource: ['report'],
+				operation: ['buttons'],
+			},
+		},
+		options: [
+			{
+				name: 'buttonsValues',
+				displayName: 'Buttons',
+				values: [
+					{
+						displayName: 'ID',
+						name: 'id',
+						type: 'string',
+						default: '',
+						routing: {
+							send: {
+								type: 'body',
+								property: 'id',
+							},
+						},
+					},
+					{
+						displayName: 'Text',
+						name: 'text',
+						type: 'string',
+						default: '',
+						routing: {
+							send: {
+								type: 'body',
+								property: 'text',
+							},
+						},
+					},
+					{
+						displayName: 'Input Required',
+						name: 'inputRequired',
+						type: 'string',
+						default: '',
+						routing: {
+							send: {
+								type: 'body',
+								property: 'inputRequired',
+							},
+						},
+					},
+				],
+			}
+		],
+		placeholder: 'Add Buttons',
+		type: 'fixedCollection',
+		typeOptions: {
+			multipleValues: true,
+		},
+	}
+];
 
 export const reportFields: INodeProperties[] = [
 	...reportOutputOperations,
@@ -228,4 +322,6 @@ export const reportFields: INodeProperties[] = [
 	...reportStatusOperations,
 
 	...reportCitationsOperations,
+
+	...repotButtonsOperations,
 ];
